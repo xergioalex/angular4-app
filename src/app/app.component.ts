@@ -6,19 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'XergioAleX';
-  a = 3;
-  b = 5;
-  listo = false;
-  myName:string = '';
-
+  title = 'PlatziSquare';
+  lugares:any = [
+    {nombre:'Florería la Gardenia'},
+    {nombre:'Donas la pasadita'},
+    {nombre:'Veterinaria Huellitas Felices'},
+    {nombre:'Florería la Gardenia'},
+    {nombre:'Donas la pasadita'},
+    {nombre:'Veterinaria Huellitas Felices'}
+  ];
   constructor() {
-  	setTimeout(() => {
-  		this.listo = true
-  	}, 3000);
+  	
   }
 
-  doSomething() {
-    alert('Do something');
-  }
 }
