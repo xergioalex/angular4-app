@@ -15,6 +15,8 @@ export class AppComponent {
     {nombre:'Donas la pasadita', active: true },
     {nombre:'Veterinaria Huellitas Felices, active: true '}
   ];
+  lat:number = 4.8016199;
+  lng:number = -75.6953962;
   constructor() {
   	
   }
