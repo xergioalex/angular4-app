@@ -13,7 +13,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DetalleComponent } from './detalle/detalle.component';
 
 const appRoutes: Routes = [
-  { path: '', component: LugaresComponent }
+  { path: '', component: LugaresComponent },
   { path: 'lugares', component: LugaresComponent },
   { path: 'detalle', component: DetalleComponent }
 ];
