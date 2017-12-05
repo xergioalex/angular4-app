@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
 import { DetalleComponent } from './detalle/detalle.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { CrearComponent } from './crear/crear.component';
 import { LugaresService } from './services/lugares.service';
 
 
@@ -20,10 +21,11 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/dat
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 const appRoutes: Routes = [
-  { path: '', component: LugaresComponent },
-  { path: 'lugares', component: LugaresComponent },
-  { path: 'detalle/:id', component: DetalleComponent },
-  { path: 'contacto', component: ContactoComponent },
+  { pathMatch: 'full', path: '', component: LugaresComponent },
+  { pathMatch: 'full', path: 'lugares', component: LugaresComponent },
+  { pathMatch: 'full', path: 'detalle/:id', component: DetalleComponent },
+  { pathMatch: 'full', path: 'contacto', component: ContactoComponent },
+  { pathMatch: 'full', path: 'crear', component: CrearComponent },
 ];
 
 export const firebaseConfig = {
@@ -41,7 +43,8 @@ export const firebaseConfig = {
     ContarClicksDirective,
     DetalleComponent,
     LugaresComponent,
-    ContactoComponent
+    ContactoComponent,
+    CrearComponent,
   ],
   imports: [
     BrowserModule,
