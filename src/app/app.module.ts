@@ -32,7 +32,7 @@ const appRoutes: Routes = [
     AgmCoreModule.forRoot({
       apiKey: ' AIzaSyCSPXrrmi_pE1Gm6rJEZsoffvmsDfPCakU '
     }),
-    //BrowserAnimationsModule
+    BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
