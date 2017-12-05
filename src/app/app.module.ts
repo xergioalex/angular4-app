@@ -11,11 +11,13 @@ import { ContarClicksDirective } from './directives/contar-clicks.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
 import { DetalleComponent } from './detalle/detalle.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 const appRoutes: Routes = [
   { path: '', component: LugaresComponent },
   { path: 'lugares', component: LugaresComponent },
-  { path: 'detalle/:id', component: DetalleComponent }
+  { path: 'detalle/:id', component: DetalleComponent },
+  { path: 'contacto', component: ContactoComponent },
 ];
 
 @NgModule({
@@ -24,7 +26,8 @@ const appRoutes: Routes = [
     ResaltarDirective,
     ContarClicksDirective,
     DetalleComponent,
-    LugaresComponent
+    LugaresComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,
