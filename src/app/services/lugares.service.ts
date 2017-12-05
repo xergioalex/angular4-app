@@ -18,10 +18,16 @@ export class LugaresService {
   public getLugares () {
   	return this.afDB.list('lugares/');
   }
+  public getLugar(id) {
+    return this.afDB.object('lugares/'+id);
+  }
 	public buscarLugar(id) {
     return this.lugares.filter((lugar) => { return parseInt(lugar.id) === parseInt(id) })[0] || null;
   }
   public guardarLugar(lugar) {
+    this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
+  }
+  public editarLugar(lugar) {
     this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
   }
   public obtenerGeoData(direccion) {
