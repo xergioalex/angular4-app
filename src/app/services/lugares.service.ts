@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database/database';
+import { Http } from '@angular/http';
 
 @Injectable()
 export class LugaresService {
@@ -11,7 +12,7 @@ export class LugaresService {
     { id: 5, plan: 'pagado', cercania: 3, distancia: 35, nombre:'Donas la pasadita', active: true, description: 'Minim sunt aute nisi esse.' },
     { id: 6, plan: 'gratuito', cercania: 3, distancia: 120, nombre:'Veterinaria Huellitas Felices', active: true, description: 'Sunt velit.'  }
   ];
-  constructor(private afDB:AngularFireDatabase) {
+  constructor(private afDB:AngularFireDatabase, private http:Http) {
 
   }
   public getLugares () {
@@ -22,5 +23,9 @@ export class LugaresService {
   }
   public guardarLugar(lugar) {
     this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
+  }
+  public obtenerGeoData(direccion) {
+    //http://maps.google.com/maps/api/geocode/json?address=78-43+diagonal+70f,+Bogota,Colombia
+    return this.http.get('http://maps.google.com/maps/api/geocode/json?address='+direccion);
   }
 }
