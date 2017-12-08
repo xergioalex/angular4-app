@@ -13,17 +13,19 @@ export class LugaresComponent {
   lng:number = -75.6953962;
   lugares = null;
   constructor(private lugaresService: LugaresService) {
-    // this.lugares = lugaresService.getLugares()
-    //   .subscribe(lugares =>{
-    //       this.lugares = JSON.parse(lugares._body);
-    //       // var self = this;
-    //       // self.lugares = Object.keys(self.lugares).map(function (key) { return self.lugares[key]; });
-    //   });
-    // }
-    lugaresService.getLugares().valueChanges().subscribe(lugares => {
-      console.log(lugares)
-      this.lugares = lugares;
-      // this.lugares = lugares.json();
-    });
+     lugaresService.getLugares()
+      .subscribe(lugares =>{
+          this.lugares = lugares;
+          var me = this;
+          me.lugares = Object.keys(me.lugares).map(function (key) { return me.lugares[key]; });
+      }, error => {
+          console.log(error);
+          alert('Tenemos algo de dificultades, disculpe las molestias. Error: ' + error.statusText);
+      });
+    // lugaresService.getLugares().valueChanges().subscribe(lugares => {
+    //   console.log(lugares)
+    //   this.lugares = lugares;
+    //   // this.lugares = lugares.json();
+    // });
   }
 }
