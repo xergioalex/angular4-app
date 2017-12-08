@@ -12,7 +12,15 @@
             <ul class="list-group">
                 <ng-container *ngFor="let lugar of lugares">
                     <!-- <a routerLink="/detalle/{{lugar.id}}" [queryParams]="{action:'view',referer:'google'}"><li *ngIf="lugar.active" class="list-group-item">{{lugar.nombre}}</li></a> -->
-                    <a routerLink="/crear/{{lugar.id}}"><li class="list-group-item">{{lugar.nombre}}</li></a>
+                    <a routerLink="/crear/{{lugar.id}}">
+                        <li class="list-group-item">
+                            {{lugar.nombre }}
+                            <br>
+                            <small>Creado: {{ lugar.id | date:'fullDate' | uppercase }}</small>
+                            <br>
+                            {{ '123213.123123' | number:'1.2-2' }}
+                        </li>
+                    </a>
                 </ng-container>
             </ul>
         </div>
