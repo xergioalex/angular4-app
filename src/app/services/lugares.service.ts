@@ -17,7 +17,8 @@ export class LugaresService {
 
   }
   public getLugares () {
-  	return this.afDB.list('lugares/');
+    return this.afDB.list('lugares/');
+  	// return this.http.get(this.API_ENDPOINT+'/lugares.json');
   }
   public getLugar(id) {
     return this.afDB.object('lugares/'+id);
@@ -26,9 +27,9 @@ export class LugaresService {
     return this.lugares.filter((lugar) => { return parseInt(lugar.id) === parseInt(id) })[0] || null;
   }
   public guardarLugar(lugar) {
-    // this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    return this.http.post(this.API_ENDPOINT + '/lugares.json', lugar, { headers: headers });
+    this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
+    // const headers = new Headers({ 'Content-Type': 'application/json' });
+    // return this.http.post(this.API_ENDPOINT + '/lugares.json', lugar, { headers: headers });
   }
   public editarLugar(lugar) {
     this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
