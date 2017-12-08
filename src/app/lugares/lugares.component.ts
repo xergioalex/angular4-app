@@ -1,13 +1,29 @@
 import { Component } from '@angular/core';
 import { LugaresService } from '../services/lugares.service';
+import { trigger, state, style } from '@angular/animations';
 
 @Component({
   selector: 'app-lugares',
   templateUrl: './lugares.component.html',
-  styleUrls: ['./lugares.component.css']
+  styleUrls: ['./lugares.component.css'],
+  animations: [
+    trigger('contenedorAnimable', [
+      state('initial', style({
+         opacity: 0,
+         backgroundColor: 'green',
+         transform: 'rotate3d(0, 0, 0, 0deg)'
+      })),
+      state('final', style({
+         opacity: 1,
+         backgroundColor: 'yellow',
+         transform: 'rotate3d(5, 10, 20, 30deg)'
+      }))
+    ])
+  ]
 })
 export class LugaresComponent {
   title = 'PlatziSquare';
+  state = 'final';
 
   lat:number = 4.8016199;
   lng:number = -75.6953962;
