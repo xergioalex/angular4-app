@@ -6,6 +6,10 @@ agm-map {
 	color: blue;
 }
 
+.padding {
+	padding: 10px;
+	margin-bottom: 10px;
+}
 
 #cuadrado {
 	width: 200px;

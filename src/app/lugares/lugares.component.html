@@ -2,10 +2,10 @@
     <agm-marker *ngFor="let lugar of lugares" [latitude]="lugar.lat" [longitude]="lugar.lng"></agm-marker>
 </agm-map>
 <hr />
-<div id="cuadrado" [@contenedorAnimable]="state" (@contenedorAnimable.start)="animationInit($event)" (@contenedorAnimable.done)="animationEnd($event)"></div>
+<!-- <div id="cuadrado" [@contenedorAnimable]="state" (@contenedorAnimable.start)="animationInit($event)" (@contenedorAnimable.done)="animationEnd($event)"></div>
 <button href="btn btn-default" (click)="animar()">
     Animar
-</button>
+</button> -->
 <div class="container">
     <div class="row">
         <div class="col-md-8">
@@ -15,7 +15,6 @@
             </a>
             <ul class="list-group">
                 <ng-container *ngFor="let lugar of lugares">
-                    <!-- <a routerLink="/detalle/{{lugar.id}}" [queryParams]="{action:'view',referer:'google'}"><li *ngIf="lugar.active" class="list-group-item">{{lugar.nombre}}</li></a> -->
                     <li class="list-group-item">
                         <a routerLink="/crear/{{lugar.id}}">
                             <h3>{{lugar.nombre }}</h3>
@@ -27,8 +26,20 @@
                 </ng-container>
             </ul>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" [@contenedorAnimable]="state">
             <h2>Destacados</h2>
+
+
+            <ng-container *ngFor="let lugar of lugares">
+                <div class="bg-danger padding" *ngIf="lugar.plan === 'pagado'">
+                    <a routerLink="/crear/{{lugar.id}}" >
+                        <h3>{{lugar.nombre }}</h3>
+                    </a>
+                    <br>
+                    <small>Creado: {{ lugar.id | date:'fullDate' | uppercase }}</small>
+                    <p [innerHtml]="lugar.descripcion | linkifystr"></p>
+                </div>
+            </ng-container>
         </div>
     </div>
 </div>

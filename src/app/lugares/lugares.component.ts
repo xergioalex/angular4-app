@@ -10,22 +10,22 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
     trigger('contenedorAnimable', [
       state('initial', style({
          opacity: 0,
-         backgroundColor: 'green',
-         transform: 'rotate3d(0, 0, 0, 0deg)'
+         // backgroundColor: 'green',
+         // transform: 'rotate3d(0, 0, 0, 0deg)'
       })),
       state('final', style({
          opacity: 1,
-         backgroundColor: 'yellow',
-         transform: 'rotate3d(5, 10, 20, 30deg)'
+         // backgroundColor: 'yellow',
+         // transform: 'rotate3d(5, 10, 20, 30deg)'
       })),
-      transition('initial => final', animate(1000)),
-      transition('final => initial', animate(500)),
+      transition('initial => final', animate(2000)),
+      transition('final => initial', animate(1000)),
     ])
   ]
 })
 export class LugaresComponent {
   title = 'PlatziSquare';
-  state = 'final';
+  state = 'initial';
 
   lat:number = 4.8016199;
   lng:number = -75.6953962;
@@ -47,8 +47,9 @@ export class LugaresComponent {
      lugaresService.getLugares()
       .subscribe(lugares =>{
           this.lugares = lugares;
-          var me = this;
-          me.lugares = Object.keys(me.lugares).map(function (key) { return me.lugares[key]; });
+          var self = this;
+          self.lugares = Object.keys(self.lugares).map(function (key) { return self.lugares[key]; });
+          this.state = 'final';
       }, error => {
           console.log(error);
           alert('Tenemos algo de dificultades, disculpe las molestias. Error: ' + error.statusText);
