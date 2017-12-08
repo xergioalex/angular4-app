@@ -15,6 +15,7 @@ import { DetalleComponent } from './detalle/detalle.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { CrearComponent } from './crear/crear.component';
 import { LugaresService } from './services/lugares.service';
+import { LinkifystrPipe } from './pipes/linkifystr.pipe';
 
 
 import { AngularFireModule } from 'angularfire2';
@@ -46,6 +47,7 @@ export const firebaseConfig = {
     LugaresComponent,
     ContactoComponent,
     CrearComponent,
+    LinkifystrPipe
   ],
   imports: [
     BrowserModule,
