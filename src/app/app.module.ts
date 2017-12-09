@@ -19,6 +19,7 @@ import { CrearComponent } from './crear/crear.component';
 import { LinkifystrPipe } from './pipes/linkifystr.pipe';
 import { LugaresService } from './services/lugares.service';
 import { AuthService } from './services/auth.service';
+import { MyGuard } from './services/my-guard.service';
 
 
 import { AngularFireModule } from 'angularfire2';
@@ -32,7 +33,7 @@ const appRoutes: Routes = [
   { pathMatch: 'full', path: 'contacto', component: ContactoComponent },
   { pathMatch: 'full', path: 'login', component: LoginComponent },
   { pathMatch: 'full', path: 'register', component: RegisterComponent },
-  { pathMatch: 'full', path: 'crear/:id', component: CrearComponent },
+  { pathMatch: 'full', path: 'crear/:id', component: CrearComponent, canActivate:[MyGuard] },
 ];
 
 export const firebaseConfig = {
@@ -71,7 +72,8 @@ export const firebaseConfig = {
   ],
   providers: [
     LugaresService,
-    AuthService
+    AuthService,
+    MyGuard
   ],
   bootstrap: [AppComponent]
 })
