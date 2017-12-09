@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
-import { Observable } from 'rxjs';
-import 'rxjs/Rx';
+
 
 @Component({
   selector: 'app-root',
