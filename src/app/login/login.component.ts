@@ -12,4 +12,7 @@ export class LoginComponent {
 	login() {
 		this.authService.login(this.loginFields.email, this.loginFields.password);
 	}
+	facebookLogin() {
+		this.authService.facebookLogin();
+	}
 }
