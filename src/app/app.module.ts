@@ -13,9 +13,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
 import { DetalleComponent } from './detalle/detalle.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { CrearComponent } from './crear/crear.component';
-import { LugaresService } from './services/lugares.service';
 import { LinkifystrPipe } from './pipes/linkifystr.pipe';
+import { LugaresService } from './services/lugares.service';
+import { AuthService } from './services/auth.service';
 
 
 import { AngularFireModule } from 'angularfire2';
@@ -27,6 +30,8 @@ const appRoutes: Routes = [
   { pathMatch: 'full', path: 'lugares', component: LugaresComponent },
   { pathMatch: 'full', path: 'detalle/:id', component: DetalleComponent },
   { pathMatch: 'full', path: 'contacto', component: ContactoComponent },
+  { pathMatch: 'full', path: 'login', component: LoginComponent },
+  { pathMatch: 'full', path: 'register', component: RegisterComponent },
   { pathMatch: 'full', path: 'crear/:id', component: CrearComponent },
 ];
 
@@ -47,7 +52,9 @@ export const firebaseConfig = {
     LugaresComponent,
     ContactoComponent,
     CrearComponent,
-    LinkifystrPipe
+    LinkifystrPipe,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +70,8 @@ export const firebaseConfig = {
     HttpModule,
   ],
   providers: [
-    LugaresService
+    LugaresService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
