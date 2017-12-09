@@ -6,7 +6,10 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './login.component.html'
 })
 export class LoginComponent {
+	loginFields: any = {};
 	constructor( private authService:AuthService) {
-		this.authService.login('email', 'password');
+	}
+	login() {
+		this.authService.login(this.loginFields.email, this.loginFields.password);
 	}
 }

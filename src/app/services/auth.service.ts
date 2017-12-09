@@ -7,7 +7,15 @@ export class AuthService {
 
 	}
 	public login = (email, password) => {
-		console.log('Login method');
+		this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
+			.then((response) => {
+				alert('User logged with success!');
+				console.log(response);
+			})
+			.catch((error) => {
+				alert('An errors was happend');
+				console.log(error);
+			});
 	}
 	public register = (email, password) => {
 		this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password)

@@ -44,20 +44,20 @@ export class LugaresComponent {
   }
 
   constructor(private lugaresService: LugaresService) {
-     lugaresService.getLugares()
-      .subscribe(lugares =>{
-          this.lugares = lugares;
-          var self = this;
-          self.lugares = Object.keys(self.lugares).map(function (key) { return self.lugares[key]; });
-          this.state = 'final';
-      }, error => {
-          console.log(error);
-          alert('Tenemos algo de dificultades, disculpe las molestias. Error: ' + error.statusText);
-      });
-    // lugaresService.getLugares().valueChanges().subscribe(lugares => {
-    //   console.log(lugares)
-    //   this.lugares = lugares;
-    //   // this.lugares = lugares.json();
-    // });
+     // lugaresService.getLugares()
+     //  .subscribe(lugares =>{
+     //      this.lugares = lugares;
+     //      var self = this;
+     //      self.lugares = Object.keys(self.lugares).map(function (key) { return self.lugares[key]; });
+     //      this.state = 'final';
+     //  }, error => {
+     //      console.log(error);
+     //      alert('Tenemos algo de dificultades, disculpe las molestias. Error: ' + error.statusText);
+     //  });
+    lugaresService.getLugares().valueChanges().subscribe(lugares => {
+      console.log(lugares)
+      this.lugares = lugares;
+      // this.lugares = lugares.json();
+    });
   }
 }

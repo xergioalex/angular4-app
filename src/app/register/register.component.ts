@@ -11,6 +11,6 @@ export class RegisterComponent {
 
 	}
 	register() {
-		this.authService.register(this.registerFields.email, this.registerFields.password);
+		this.authService.login(this.registerFields.email, this.registerFields.password);
 	}
 }
