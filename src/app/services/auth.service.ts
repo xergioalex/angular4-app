@@ -50,4 +50,7 @@ export class AuthService {
 		alert('Session closed');
 		this.router.navigate(['lugares']);
 	}
+	public getUser() {
+		return this.angularFireAuth.auth;
+	}
 }

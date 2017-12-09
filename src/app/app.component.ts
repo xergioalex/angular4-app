@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
+import { Observable } from 'rxjs';
+import 'rxjs/Rx';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +10,15 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
 	loggedIn = false;
-
+	loggedUser:any = null;
 	constructor(private authService:AuthService) {
 		this.authService.isLogged()
 			.subscribe((result) => {
 				if (result && result.uid) {
 					this.loggedIn = true;
+					setTimeout(() => {
+						this.loggedUser = this.authService.getUser().currentUser.email;
+					}, 500);
 				} else {
 					this.loggedIn = false;
 				}
