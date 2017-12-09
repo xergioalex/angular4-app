@@ -50,7 +50,7 @@ export class CrearComponent {
 	};
 	recogerDireccion(result) {
 	    this.lugar.calle = result.address_components[1].long_name + ' ' + result.address_components[0].long_name;
-	    this.lugar.ciudad = result.address_components[3].long_name;
-	    this.lugar.pais = result.address_components[4].long_name;
+	    this.lugar.ciudad = result.address_components[4].long_name;
+	    this.lugar.pais = result.address_components[6].long_name;
 	}
 }
