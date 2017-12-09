@@ -21,4 +21,7 @@ export class AppComponent {
 				this.loggedIn = false;
 			});
 	}
+	logout() {
+		this.authService.logout();
+	}
 }

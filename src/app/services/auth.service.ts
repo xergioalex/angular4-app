@@ -45,4 +45,9 @@ export class AuthService {
 	public isLogged() {
 		return this.angularFireAuth.authState;
 	}
+	public logout() {
+		this.angularFireAuth.auth.signOut();
+		alert('Session closed');
+		this.router.navigate(['lugares']);
+	}
 }
